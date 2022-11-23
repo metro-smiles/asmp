@@ -27,7 +27,7 @@ In the paper, we report experimental results on the [ASIW](https://sites.google.
 
 Please download the pre-processed Audio Separation in the Wild (ASIW) dataset from this [link](https://data.aifarms.org/files/links/6356f2a5e4b04f23bdc31bd5). Then, unzip it into the root directory where this repository is cloned. 
 
-Then download the pre-computed pairwise Chamfer Distances and the object displacement vectors from this [link](). Make sure to put the Rectified_Frames folder under *<path to>/Audiocaps_Dataset/*. Merge the */audiocaps/dataset/* folder with that from the ASIW dataset link from above (if it exists).
+Then download the pre-computed pairwise Chamfer Distances and the object displacement vectors from this [link](). Make sure to put the Rectified_Frames folder under *<path to>/Audiocaps_Dataset/*. 
 
 # Pre-trained Models
 The pre-trained models for this task may be downloaded from here: [link]()
@@ -38,14 +38,14 @@ The evaluation for the audio source separation may be performed by running the f
 
 ```
 $ export MODEL_PATH="<path to root>/checkpoints/pretrained_models/"
-$ python -W ignore test_batch_noaug_varcontxt_full300_onlysep.py --visual_pool conv1x1 --unet_num_layers 7 --data_path <path to>/Audiocaps_Dataset/ --hdf5_path <path to>/audiocaps/dataset/ --gpu_ids 0 --weights_unet $MODEL_PATH/unet_final.pth  --weights_classifier $MODEL_PATH/classifier_final.pth --weights_graph $MODEL_PATH/graph_net_final.pth --weights_map_net $MODEL_PATH/map_net_final.pth --weights_rnn $MODEL_PATH/rnn_final.pth --num_of_object_detections_to_use 1 --with_additional_scene_image --sigma 25 --scene_path ./pre_trained/ADE.h5 --output_dir_root ./test_results/
+$ python -W ignore test_batch_noaug_varcontxt_full300_onlysep.py --visual_pool conv1x1 --unet_num_layers 7 --data_path <path to>/Audiocaps_Dataset/ --hdf5_path <path to>/dataset/ --gpu_ids 0 --weights_unet $MODEL_PATH/unet_final.pth  --weights_classifier $MODEL_PATH/classifier_final.pth --weights_graph $MODEL_PATH/graph_net_final.pth --weights_map_net $MODEL_PATH/map_net_final.pth --weights_rnn $MODEL_PATH/rnn_final.pth --num_of_object_detections_to_use 1 --with_additional_scene_image --sigma 25 --scene_path ./pre_trained/ADE.h5 --output_dir_root ./test_results/
 ```
 
 The evaluation for the direction prediction task may be performed by running the following command:
 
 ```
 $ export MODEL_PATH="<path to root>/checkpoints/pretrained_models/"
-$ python -W ignore test_batch_noaug_varcontxt_dirpred_fin28class.py --visual_pool conv1x1 --unet_num_layers 7 --data_path <path to>/Audiocaps_Dataset/ --hdf5_path <path to>/audiocaps/dataset/ --gpu_ids 0 --weights_unet $MODEL_PATH/unet_final.pth  --weights_classifier $MODEL_PATH/classifier_final.pth --weights_graph $MODEL_PATH/graph_net_final.pth --weights_map_net $MODEL_PATH/map_net_final.pth --weights_rnn $MODEL_PATH/rnn_final.pth --weights_fuse_enc $MODEL_PATH/fusion_enc_final.pth --weights_net_fuse $MODEL_PATH/dir_classifier_final.pth --num_of_object_detections_to_use 1 --with_additional_scene_image --number_of_dir_classes 28 --sigma 25 --scene_path ./pre_trained/ADE.h5 --output_dir_root ./test_results/
+$ python -W ignore test_batch_noaug_varcontxt_dirpred_fin28class.py --visual_pool conv1x1 --unet_num_layers 7 --data_path <path to>/Audiocaps_Dataset/ --hdf5_path <path to>/dataset/ --gpu_ids 0 --weights_unet $MODEL_PATH/unet_final.pth  --weights_classifier $MODEL_PATH/classifier_final.pth --weights_graph $MODEL_PATH/graph_net_final.pth --weights_map_net $MODEL_PATH/map_net_final.pth --weights_rnn $MODEL_PATH/rnn_final.pth --weights_fuse_enc $MODEL_PATH/fusion_enc_final.pth --weights_net_fuse $MODEL_PATH/dir_classifier_final.pth --num_of_object_detections_to_use 1 --with_additional_scene_image --number_of_dir_classes 28 --sigma 25 --scene_path ./pre_trained/ADE.h5 --output_dir_root ./test_results/
 ```
 
 # Citation
