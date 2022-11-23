@@ -5,18 +5,19 @@ Code repository for ["Learning Audio-Visual Dynamics Using Scene Graphs for Audi
 
 <br/>
 
-<img src='Final_Model_Arch_Github.png' align="left" >
+<img src='Arch_Fig.png' align="left" >
 
 <br/>
 
-Associating the visual appearance of real world objects with their auditory signatures is critical for holistic AI systems and finds practical usage in several tasks, such as audio denoising, musical instrument equalization, etc.
+Intelligent systems need to draw meaningful deductions about objects in a scene by associating their visual appearance and motion with their audio signatures.
 
-In this work, we consider the task of visually guided audio source separation. Towards this end, we propose a deep neural network, Audio Visual Scene Graph Segmenter (AVSGS), with the following two components:
+In this work, we consider the task of visually guided audio source separation and use this separated audio (derived from the visual conditioning information) to coarsely estimate the direction of motion of the sound source. Towards this end, we propose a deep neural network, Audio Separator and Motion Predictor (ASMP), with the following three architectural components:
 
  * Visual Conditioining Module
  * Audio-Separator Network
+ * Direction Prediction Network
 
-As illustrated in the figure above, AVSGS begins by leveraging its Visual Conditioning module to create dynamic graph embeddings of potential auditory sources and their context nodes. Towards this end, this module employs Graph Ateention Networks and Edge Convolution. Next, the graph embeddings are used to condition a U-Net style network responsible for undertaking the audio source separation, called the Audio Separator Network.
+As illustrated in the figure above, ASMP begins by leveraging its Visual Conditioning module to create graph embeddings of potential auditory sources and their context nodes. Towards this end, this module employs Graph Ateention Networks and Edge Convolution. Importantly the graph construction encodes scene geometry information. Next, the graph embeddings are used to condition a U-Net style network responsible for undertaking the audio source separation, called the Audio Separator Network. Finally this conditionally separated output is passed through a direction prediction network, to estimate the direction of motion (one of 28 classes).
 
 # Key Libraries
 Please refer to requirements.txt file.
@@ -24,9 +25,9 @@ Please refer to requirements.txt file.
 # Datasets
 In the paper, we report experimental results on the [ASIW](https://sites.google.com/site/metrosmiles/research/research-projects/avsgs) dataset among others.
 
-Please download the pre-processed dataset including the pairwise Chamfer Distances and the object displacement vectors from this link from this [link](https://www.dropbox.com/s/0v3qg0bbqe7u2a6/Audiocaps_Dataset.zip?dl=0).
+Please download the pre-processed Audio Separation in the Wild (ASIW) dataset from this [link](https://data.aifarms.org/files/links/6356f2a5e4b04f23bdc31bd5). Then, unzip it into the root directory where this repository is cloned. 
 
-Then, unzip it into the root directory where this repository is cloned. Make sure to put the Rectified_Frames folder under *<path to>/Audiocaps_Dataset/*
+Then download the pre-computed pairwise Chamfer Distances and the object displacement vectors from this [link](). Make sure to put the Rectified_Frames folder under *<path to>/Audiocaps_Dataset/*
 
 # Pre-trained Models
 The pre-trained models for this task may be downloaded from here: [link]()
