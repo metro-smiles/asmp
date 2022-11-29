@@ -27,10 +27,10 @@ In the paper, we report experimental results on the [ASIW](https://sites.google.
 
 Please download the pre-processed Audio Separation in the Wild (ASIW) dataset from this [link](https://data.aifarms.org/files/links/6356f2a5e4b04f23bdc31bd5). Then, unzip it into the root directory where this repository is cloned. 
 
-Then download the pre-computed pairwise Chamfer Distances and the object displacement vectors from this [link](https://data.aifarms.org/files/links/637dbce2e4b09fb6b920a3df). Make sure to put the Rectified_Frames folder extracted from this zip file under *<path to>/Audiocaps_Dataset/* extracted in the previous step. 
+Then download the pre-computed pairwise Chamfer Distances and the object displacement vectors from this [link](https://data.aifarms.org/files/links/63861f8de4b04f2370ad2a76). Make sure to put the Rectified_Frames folder extracted from this zip file under *<path to>/Audiocaps_Dataset/* extracted in the previous step. 
 
 # Pre-trained Models
-The pre-trained models for this task may be downloaded from here: [link](https://data.aifarms.org/files/links/637dbf11e4b09fb6b920a3f5)
+The pre-trained models for this task may be downloaded from here: [link](https://data.aifarms.org/files/links/63861f0fe4b04f2370ad2a75)
 
 
 # Evaluation
